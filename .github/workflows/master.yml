@@ -1,13 +1,13 @@
 name: Multi-Arch Build
 on:
-  push:
-    branches:
-      - master
-  pull_request:
-    branches:
-      - master
-  schedule:
-    - cron: '0 2 * * 6'
+#  push:
+#    branches:
+#      - master
+#  pull_request:
+#    branches:
+#      - master
+#  schedule:
+#    - cron: '0 2 * * 6'
 jobs:
   build:
 
