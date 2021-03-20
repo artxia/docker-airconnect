@@ -15,19 +15,28 @@ jobs:
     name: build
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    
+
     steps:
-
-    - name: checkout
-      uses: actions/checkout@v2
-
-    - name: build and push image
-      uses: docker/build-push-action@v1
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v1
+      
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+      
+    - name: Login to DockerHub
+      uses: docker/login-action@v1 
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-        repository: artxia/airconnect
+        
+    - name: Build and push
+      id: docker_build
+      uses: docker/build-push-action@v2
+      with:
         platforms: linux/amd64,linux/arm64,linux/arm/v7
-        tag_with_ref: true
-        push: ${{ startsWith(github.ref, 'refs/tags/') }}
-        tags: latest
+        push: true
+        tags: |
+            artxia/airconnect:latest
+            artxia/airconnect:${{ startsWith(github.ref, 'refs/tags/') }}
+
+
