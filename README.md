@@ -1,3 +1,12 @@
+# 优化
+
+安装：
+
+`docker run -d --net=host artxia/airconnect`
+
+- 优化项目内自动更新核心可执行文件的下载地址为 cdn.jsdelivr.net 代理。方便中国大陆用户更新（每次重启容器就会自动更新核心可执行文件）
+- 优化 Docker Hub 打包程序
+
 ![Multi-Arch Build](https://github.com/1activegeek/docker-airconnect/workflows/Multi-Arch%20Build/badge.svg?branch=master)
 # docker-airconnect
 AirConnect container for turning Chromecast into Airplay targets  
