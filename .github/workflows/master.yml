@@ -1,4 +1,5 @@
 name: Multi-Arch Build
+
 on:
 #  push:
 #    branches:
@@ -8,6 +9,9 @@ on:
 #      - master
 #  schedule:
 #    - cron: '0 2 * * 6'
+  workflow_dispatch:
+    inputs:
+
 jobs:
   build:
 
