@@ -27,7 +27,7 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         repository: artxia/airconnect
-        platforms: linux/amd64,linux/arm64,linux/armhf
+        platforms: linux/amd64,linux/arm64,linux/arm/v7
         tag_with_ref: true
         push: ${{ startsWith(github.ref, 'refs/tags/') }}
         tags: latest
