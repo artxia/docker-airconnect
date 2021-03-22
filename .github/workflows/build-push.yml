@@ -10,6 +10,9 @@ on:
   workflow_dispatch:
     inputs:
 
+env:
+  IMAGE_NAME: airconnect
+
 jobs:
   build:
     name: build
@@ -40,8 +43,8 @@ jobs:
         platforms: linux/amd64,linux/arm64,linux/arm/v7
         push: ${{ startsWith(github.ref, 'refs/tags/') }}
         tags: |
-            artxia/airconnect:latest
-            artxia/airconnect:${{ steps.prep.outputs.VERSION }}
+            ${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:latest
+            ${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:${{ steps.prep.outputs.VERSION }}
 
 
 
