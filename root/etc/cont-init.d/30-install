@@ -2,7 +2,7 @@
 
 echo "Checking for valid arch options"
 case $ARCH_VAR in
-  x86-64)
+  x86_64)
     echo "Proceeding with x86-64 arch"
     ;;
   aarch64)
