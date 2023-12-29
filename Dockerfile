@@ -1,6 +1,8 @@
 FROM lsiobase/ubuntu:jammy
 
-ENV ARCH_VAR=x86_64
+# Pulling TARGET_ARCH from build arguments and setting ENV variable
+ARG TARGETARCH
+ENV ARCH_VAR=$TARGETARCH
 
 # Add Supervisor
 RUN apt-get update && apt-get install -y \
