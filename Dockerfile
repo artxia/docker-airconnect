@@ -1,4 +1,4 @@
-FROM lsiobase/ubuntu:bionic
+FROM lsiobase/ubuntu:jammy
 
 ENV ARCH_VAR=x86_64
 
